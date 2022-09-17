@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="main.js"></script>
+  <body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded arjs>
+      <a-marker preset="kanji">
+        <a-entity
+          position="0 0 0"
+          scale="1 1 1"
+          gltf-model="/skull/scene.gltf"
+        ></a-entity>
+      </a-marker>
+      <a-marker 
+        markerhandler 
+        preset="hiro" 
+        cursor="rayOrigin: mouse"
+        emitevents="true"
+      >
+        <a-entity
+          id="inu" 
+          position="0 0 0"
+          scale="1 1 1"
+          gltf-model="/inu/scene.gltf"
+        >
+          <a-plane 
+            id="points"
+            color="white" 
+            height="2" 
+            width="2"
+            position="0 2 0"
+            visible="false"
+          >
+            <a-text color="black" position="0 0 0.001" value="Attack: 5"></a-text>
+            <!-- <a-text value="Defence: 2"></a-text> -->
+          </a-plane>
+        </a-entity>
+      </a-marker>
+      <a-entity camera>
+        
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
