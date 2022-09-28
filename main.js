@@ -29,3 +29,15 @@ AFRAME.registerComponent('markerhandler', {
         })
     }
 })
+
+// https://aframe.io/docs/1.3.0/components/raycaster.html
+AFRAME.registerComponent('collider-check', {
+    dependencies: ['raycaster'],
+
+    init: function() {
+        this.el.addEventListener('raycaster-intersection', function() {
+            const current_enemy = this.raycaster.intersectedEls[0];
+            console.log(current_enemy);
+        })
+    }
+})
