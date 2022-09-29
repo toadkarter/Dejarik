@@ -24,8 +24,8 @@ AFRAME.registerComponent('markerhandler', {
             }
 
 
-            // const currentVisibility = overlay.getAttribute('visible');
-            // overlay.setAttribute('visible', !currentVisibility);
+            const currentVisibility = overlay.getAttribute('visible');
+            overlay.setAttribute('visible', !currentVisibility);
         })
     }
 })
