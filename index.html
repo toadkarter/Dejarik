@@ -14,11 +14,13 @@
       >
         <a-entity
           position="0 0 0"
-          scale="1 1 1"
-          rotation="0 -90 0"
+          scale="0.5 0.5 0.5"
+          rotation="0 0 0"
           gltf-model="/skull/scene.gltf"
           collider-check
+          class="collidable"
         >
+          <a-entity raycaster="objects: .collidable; showLine: true; far: 100; lineColor: red; lineOpacity: 0.5" position="0 0 0" rotation="0 180 0"></a-entity>
           <a-text id="points" color="white" position="-0.5 2 0" value="Attack: 2"></a-text>
           <a-text color="white" position="-0.5 1 0" value="Defense: 5"></a-text>
         </a-entity>
@@ -35,14 +37,18 @@
           id="inu" 
           position="0 0 0"
           scale="1 1 1"
-          rotation="0 90 0"
+          rotation="0 0 0"
           gltf-model="/inu/scene.gltf"
           collider-check
+          class="collidable"
+          gameStats="attack: 5; defense: 3"
         >
-          <a-text color="white" position="0 2 0" value="Attack: 5"></a-text>
-          <a-text color="white" position="0 1 0" value="Attack: 2"></a-text>
+          <a-entity raycaster="objects: .collidable; showLine: true; far: 100; lineColor: red; lineOpacity: 0.5" position="0 0 0" rotation="0 180 0"></a-entity>
+          <a-text color="white" position="-0.5 1 0" value="Attack: 5"></a-text>
+          <a-text color="white" position="-0.5 0.75 0" value="Defense: 3"></a-text>
         </a-entity>
       </a-marker>
+
       <a-entity camera></a-entity>
     </a-scene>
   </body>

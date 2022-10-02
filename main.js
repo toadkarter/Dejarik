@@ -8,6 +8,15 @@ const skullStats = {
     defence: 5,
 }
 
+AFRAME.registerComponent('gameStats', {
+    schema: {
+        attack: {type: 'number', default: 0},
+        defense: {type: 'number', default: 0}
+    },
+
+    multiple: true
+})
+
 AFRAME.registerComponent('markerhandler', {
     init: function() {
         const currentMarker = document.querySelector("#coolMarker");
@@ -27,17 +36,18 @@ AFRAME.registerComponent('markerhandler', {
             const currentVisibility = overlay.getAttribute('visible');
             overlay.setAttribute('visible', !currentVisibility);
         })
-    }
+    },
+    multiple: true
 })
 
 // https://aframe.io/docs/1.3.0/components/raycaster.html
+// https://stackoverflow.com/questions/61944027/aframe-how-to-get-intersected-elements-from-raycaster-intersection-event
 AFRAME.registerComponent('collider-check', {
     dependencies: ['raycaster'],
-
     init: function() {
-        this.el.addEventListener('raycaster-intersection', function() {
-            const current_enemy = this.raycaster.intersectedEls[0];
-            console.log(current_enemy);
+        this.el.addEventListener('raycaster-intersection', function () {
+            console.log('Player hit something!');
         })
-    }
+    },
+    multiple: true
 })
