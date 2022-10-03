@@ -30,8 +30,6 @@
         markerhandler
         id="coolMarker" 
         preset="hiro" 
-        cursor="rayOrigin: mouse"
-        emitevents="true"
       >
         <a-entity
           id="inu" 
@@ -41,7 +39,11 @@
           gltf-model="/inu/scene.gltf"
           collider-check
           class="collidable"
+          markerhandler
+          visible="true"
           gameStats="attack: 5; defense: 3"
+          cursor="rayOrigin: mouse"
+          emitevents="true"
         >
           <a-entity raycaster="objects: .collidable; showLine: true; far: 100; lineColor: red; lineOpacity: 0.5" position="0 0 0" rotation="0 180 0"></a-entity>
           <a-text color="white" position="-0.5 1 0" value="Attack: 5"></a-text>

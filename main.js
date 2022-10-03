@@ -19,22 +19,11 @@ AFRAME.registerComponent('gameStats', {
 
 AFRAME.registerComponent('markerhandler', {
     init: function() {
-        const currentMarker = document.querySelector("#coolMarker");
-        const model = document.querySelector("#inu");
-        const overlay = document.querySelector('#points');
+        const currentModel = this.el
 
-        model.stats = inuStats;
-
-        model.addEventListener('click', function(ev, target) {
-            const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-            console.log(intersectedElement);
-            if (model && intersectedElement == model) {
-                console.log(model.stats["attack"]);
-            }
-
-
-            const currentVisibility = overlay.getAttribute('visible');
-            overlay.setAttribute('visible', !currentVisibility);
+        currentModel.addEventListener('click', function() {
+            const currentVisibility = this.getAttribute('visible');
+            this.setAttribute("scale", "0 0 0");
         })
     },
     multiple: true
