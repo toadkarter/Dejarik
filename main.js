@@ -20,10 +20,13 @@ AFRAME.registerComponent('gameStats', {
 AFRAME.registerComponent('markerhandler', {
     init: function() {
         const currentModel = this.el
+        const gameStats = currentModel.querySelectorAll('a-text');
 
         currentModel.addEventListener('click', function() {
-            const currentVisibility = this.getAttribute('visible');
-            this.setAttribute("scale", "0 0 0");
+            for (var i = 0; i < gameStats.length; i++) {
+                const currentVisibility = gameStats[i].getAttribute('visible');
+                gameStats[i].setAttribute('visible', !currentVisibility);
+            }
         })
     },
     multiple: true

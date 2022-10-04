@@ -7,11 +7,7 @@
   </head>
   <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded arjs>
-      <a-marker 
-        preset="kanji"
-        cursor="rayOrigin: mouse"
-        emitevents="true"
-      >
+      <a-marker preset="kanji">
         <a-entity
           position="0 0 0"
           scale="0.5 0.5 0.5"
@@ -19,18 +15,17 @@
           gltf-model="/skull/scene.gltf"
           collider-check
           class="collidable"
+          markerhandler
+          cursor="rayOrigin: mouse"
+          emitevents="true"
         >
           <a-entity raycaster="objects: .collidable; showLine: true; far: 100; lineColor: red; lineOpacity: 0.5" position="0 0 0" rotation="0 180 0"></a-entity>
-          <a-text id="points" color="white" position="-0.5 2 0" value="Attack: 2"></a-text>
+          <a-text color="white" position="-0.5 2 0" value="Attack: 2"></a-text>
           <a-text color="white" position="-0.5 1 0" value="Defense: 5"></a-text>
         </a-entity>
       </a-marker>
 
-      <a-marker 
-        markerhandler
-        id="coolMarker" 
-        preset="hiro" 
-      >
+      <a-marker preset="hiro">
         <a-entity
           id="inu" 
           position="0 0 0"
