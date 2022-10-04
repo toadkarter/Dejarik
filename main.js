@@ -36,9 +36,16 @@ AFRAME.registerComponent('markerhandler', {
 // https://stackoverflow.com/questions/61944027/aframe-how-to-get-intersected-elements-from-raycaster-intersection-event
 AFRAME.registerComponent('collider-check', {
     dependencies: ['raycaster'],
+    schema: {
+        attack: {type: 'number', default: 0},
+        defense: {type: 'number', default: 0}
+
+    },
     init: function() {
-        this.el.addEventListener('raycaster-intersection', function () {
-            console.log('Player hit something!');
+    
+        this.el.addEventListener('raycaster-intersection', function (evt) {
+
+            //console.log(evt);
         })
     },
     multiple: true

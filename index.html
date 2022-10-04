@@ -13,13 +13,13 @@
           scale="0.5 0.5 0.5"
           rotation="0 0 0"
           gltf-model="/skull/scene.gltf"
-          collider-check
+          collider-check="attack: 2; defense: 5"
           class="collidable"
           markerhandler
           cursor="rayOrigin: mouse"
           emitevents="true"
         >
-          <a-entity raycaster="objects: .collidable; showLine: true; far: 100; lineColor: red; lineOpacity: 0.5" position="0 0 0" rotation="0 180 0"></a-entity>
+          <a-entity raycaster="objects: .collidable"></a-entity>
           <a-text color="white" position="-0.5 2 0" value="Attack: 2"></a-text>
           <a-text color="white" position="-0.5 1 0" value="Defense: 5"></a-text>
         </a-entity>
@@ -27,20 +27,17 @@
 
       <a-marker preset="hiro">
         <a-entity
-          id="inu" 
           position="0 0 0"
           scale="1 1 1"
           rotation="0 0 0"
           gltf-model="/inu/scene.gltf"
-          collider-check
+          collider-check="attack: 5; defense: 3"
           class="collidable"
           markerhandler
-          visible="true"
-          gameStats="attack: 5; defense: 3"
           cursor="rayOrigin: mouse"
           emitevents="true"
         >
-          <a-entity raycaster="objects: .collidable; showLine: true; far: 100; lineColor: red; lineOpacity: 0.5" position="0 0 0" rotation="0 180 0"></a-entity>
+          <a-entity raycaster="objects: .collidable" position="0 0 0" rotation="0 180 0"></a-entity>
           <a-text color="white" position="-0.5 1 0" value="Attack: 5"></a-text>
           <a-text color="white" position="-0.5 0.75 0" value="Defense: 3"></a-text>
         </a-entity>
