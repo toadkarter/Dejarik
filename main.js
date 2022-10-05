@@ -52,5 +52,10 @@ AFRAME.registerComponent('collider-check', {
 
         })
     },
+    tick: function() {
+        const playerModel = this.el;
+        const currentSize = playerModel.getAttribute('scale').x
+        playerModel.object3D.scale.set(currentSize-0.01, currentSize-0.01, currentSize-0.01)
+    },
     multiple: true
 })
