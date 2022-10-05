@@ -1,13 +1,3 @@
-const inuStats = {
-    attack: 5,
-    defence: 3,
-}
-
-const skullStats = {
-    attack: 3,
-    defence: 5,
-}
-
 AFRAME.registerComponent('gameStats', {
     schema: {
         attack: {type: 'number', default: 0},
@@ -42,10 +32,24 @@ AFRAME.registerComponent('collider-check', {
 
     },
     init: function() {
-    
+        let colliderInit = 3;
+        const playerStats = this.data
+        const playerModel = this.el
         this.el.addEventListener('raycaster-intersection', function (evt) {
+            if (colliderInit == 0) {
+                const enemyStats = evt.detail.els[0].getAttribute('collider-check')
+                const enemyModel = evt.detail.els[0]
+                if (playerStats.attack >= enemyStats.defense) {
+                    console.log("Player wins!")
+                    enemyModel.setAttribute("visible", false);
+                } else if (enemyStats.attack >= playerStats.defense) {
+                    console.log("Enemy wins!")
+                    playerModel.setAttribute("visible", false);
+                }
+            } else {
+                colliderInit--;
+            }
 
-            //console.log(evt);
         })
     },
     multiple: true
