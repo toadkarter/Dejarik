@@ -1,7 +1,7 @@
 AFRAME.registerComponent('gameStats', {
     schema: {
         attack: {type: 'number', default: 0},
-        defense: {type: 'number', default: 0}
+        defense: {type: 'number', default: 0},
     },
 
     multiple: true
@@ -28,8 +28,8 @@ AFRAME.registerComponent('collider-check', {
     dependencies: ['raycaster'],
     schema: {
         attack: {type: 'number', default: 0},
-        defense: {type: 'number', default: 0}
-
+        defense: {type: 'number', default: 0},
+        isDead: {type: 'boolean', default: false},
     },
     init: function() {
         let colliderInit = 3;
@@ -41,10 +41,10 @@ AFRAME.registerComponent('collider-check', {
                 const enemyModel = evt.detail.els[0]
                 if (playerStats.attack >= enemyStats.defense) {
                     console.log("Player wins!")
-                    enemyModel.setAttribute("visible", false);
+                    enemyModel.setAttribute('collider-check', 'isDead', 'true')
                 } else if (enemyStats.attack >= playerStats.defense) {
                     console.log("Enemy wins!")
-                    playerModel.setAttribute("visible", false);
+                    playerModel.setAttribute('collider-check', 'isDead', 'true')
                 }
             } else {
                 colliderInit--;
@@ -54,8 +54,23 @@ AFRAME.registerComponent('collider-check', {
     },
     tick: function() {
         const playerModel = this.el;
+        const shrinkFactor = 0.1 
+        const isDead = playerModel.getAttribute('collider-check').isDead
+
+        if (!isDead) { return; }
+
         const currentSize = playerModel.getAttribute('scale').x
-        playerModel.object3D.scale.set(currentSize-0.01, currentSize-0.01, currentSize-0.01)
+
+        if (currentSize - shrinkFactor <= 0) {
+            playerModel.setAttribute('visible', false); 
+            return; 
+        }
+
+        playerModel.object3D.scale.set(
+            currentSize-shrinkFactor, 
+            currentSize-shrinkFactor, 
+            currentSize-shrinkFactor
+        )
     },
     multiple: true
 })
