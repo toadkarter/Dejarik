@@ -1,12 +1,19 @@
+<!-- This is structure is largely based on the arJS documentation examples, -->
+<!-- which can be found at the following URL: -->
+<!-- https://ar-js-org.github.io/AR.js-Docs/ -->
+
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Including AFrame, arJS and custom JavaScript file -->
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="main.js"></script>
   </head>
   <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded arjs>
+    
+    <!-- Including the first game piece, setting the model, attack defense properties, and checking for mouse click events -->
       <a-marker preset="kanji">
         <a-entity
           position="0 0 0"
@@ -18,12 +25,14 @@
           cursor="rayOrigin: mouse"
           emitevents="true"
         >
+        <!-- Including raycaster that scans for collidable objects, together with the game stats UI -->
           <a-entity raycaster="objects: .collidable"></a-entity>
           <a-text color="white" position="-0.5 2.0 0" value="Attack: 2"></a-text>
           <a-text color="white" position="-0.5 1.8 0" value="Defense: 5"></a-text>
         </a-entity>
       </a-marker>
 
+      <!-- The second game piece, using similar logic to the first one but with different values -->
       <a-marker preset="hiro">
         <a-entity
           position="0 0 0"
@@ -42,6 +51,7 @@
         </a-entity>
       </a-marker>
 
+      <!-- Main viewport for the player -->
       <a-entity camera></a-entity>
     </a-scene>
   </body>
