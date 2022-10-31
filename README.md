@@ -19,7 +19,7 @@ The attacker gets a slight surprise attack advantage because it gets to use its 
 
 ### **Video Demo**
 ---
-A video demo will be added to this GitHub repository once it is made public.
+You can view a video demo of [Dejarik at this link](https://www.youtube.com/watch?v=I0bMdDTINxE).
 
 ## **What technologies were used in the making of Dejarik?**
 
