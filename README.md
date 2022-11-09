@@ -2,7 +2,6 @@
 ![](./readme_images/dejarik.JPG)
 
 ## **What is Dejarik?**
----
 
 Dejarik is a prototype for a chess-style game played using augmented reality. Players will place their game pieces - taking the form of markers - on the board, and after viewing the board through an augmented reality display will be able to see the models representing such pieces (see screenshot above). The two game pieces contained in the sample code run on the "hiro" marker preset and the "kanji" marker preset, both of which can be found in the AR.js documentation (linked in the sources section below).
 
@@ -44,13 +43,11 @@ Game pieces are added in the main HTML file through the use of \<a-marker> tags,
 The components are designed to be modular, meaning that new pieces can be added with relative ease, with the only tweaks needing to be made relating to the individual properties of a given piece like what model needs to be used for it. 
 
 ## **Future Work**
----
 
 Ideally, more marker shapes and models will be introduced, so that more game pieces could be added to the game. Also, it would be interesting to add some modifications to the rules - for example, certain game pieces should be able to pierce several pieces at once, or maybe attack not just from the front but from the back and sides, too.
 
 
 ## **Sources and References**
----
 
 The documentation written for AR.js, A-Frame, and Metashape was invaluable for the production of this project. I have set out below the main links to documentation and tutorials used over the course of Dejarik's production:
 
